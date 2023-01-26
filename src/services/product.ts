@@ -2,7 +2,7 @@ import { http } from '@/config/http';
 
 export async function getAll({
   page = 1,
-  rows = 5,
+  rows = 8,
   sortBy = 'id',
   orderBy = 'DESC',
 }) {

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import CardNavBar from '@/components/CardNavBar';
 import { actions as toolsActions } from '@/reducers/tools';
+import priceTotal from '@/reducers/product/selectors/priceTotal';
 import { RootState } from '@/reducers';
 
 import Close from '../../../public/assets/icons/close.svg';
@@ -13,6 +14,7 @@ function SideBar() {
   const dispatch = useDispatch();
   const { product } = useSelector((state: RootState) => state);
   const { tools } = useSelector((state: RootState) => state);
+  const total = useSelector(priceTotal);
 
   const handleSideBar = useCallback(() => {
     try {
@@ -38,7 +40,7 @@ function SideBar() {
         </S.Main>
         <S.Wrapper>
           <S.Text>Total </S.Text>
-          <S.Text>R$798 </S.Text>
+          <S.Text>R${total} </S.Text>
         </S.Wrapper>
       </S.Content>
       <S.Footer>

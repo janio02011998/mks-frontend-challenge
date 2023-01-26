@@ -8,7 +8,7 @@ export const Container = styled.div`
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   top: 0;
   right: 0;
-  height: 100vh;
+  min-height: 100vh;
   width: 486px;
 
   display: flex;

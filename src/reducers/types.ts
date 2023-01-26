@@ -1,5 +1,5 @@
 export interface IInitialState {
-  product: Array<IProduct> | [];
+  shoppingCart: Array<IProduct> | [];
 }
 
 export interface IProduct {
@@ -11,4 +11,8 @@ export interface IProduct {
   price: string;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export interface IState {
+  product: IInitialState;
 }

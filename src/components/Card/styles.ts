@@ -16,8 +16,8 @@ export const Container = styled.div`
     transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
     transition-duration: 300ms;
   }
-  height: 285px;
-  width: 215px;
+  height: 320px;
+  width: 230px;
   padding-top: 6px;
   border-radius: 8px;
   background-color: ${colors.white};

@@ -1,7 +1,7 @@
-import { IProduct } from '@/reducers/product/types';
+import { IShoppingCart } from '@/reducers/product/types';
 
 export interface TextColor {
   black?: boolean;
 }
 
-export interface ICard extends IProduct {}
+export interface ICard extends IShoppingCart {}

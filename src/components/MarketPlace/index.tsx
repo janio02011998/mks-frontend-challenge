@@ -1,4 +1,4 @@
-import { IProduct } from '@/reducers/types';
+import { IProduct } from '@/reducers/product/types';
 import React from 'react';
 import Card from '../Card';
 

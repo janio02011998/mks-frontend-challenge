@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import * as S from './styles';
 import * as T from './types';
@@ -7,18 +7,48 @@ import * as T from './types';
 import Bag from '../../../public/assets/icons/bag.svg';
 
 import { actions as productActions } from '@/reducers/product';
+import { RootState } from '@/reducers';
 
 export default function Card(props: T.ICard) {
   const dispatch = useDispatch();
+  const { product } = useSelector((state: RootState) => state);
+
+  const { shoppingCart } = product;
   const { price, photo, name, description } = props;
 
   const handleItem = useCallback(() => {
     try {
-      const shoppingCarts = [props];
+      const isEmpty = shoppingCart?.length === 0;
 
-      dispatch(productActions.setShoppingCart(shoppingCarts));
-    } catch (e) {}
-  }, [dispatch, props]);
+      if (isEmpty) {
+        console.log([{ ...props, count: 1 }]);
+
+        dispatch(productActions.setShoppingCart([{ ...props, count: 1 }]));
+      } else {
+        const isAdded =
+          shoppingCart.filter((item) => item.id === props.id).length > 0;
+
+        if (isAdded) {
+          const newArr = shoppingCart.map((item) => {
+            if (item.id === props.id) {
+              return { ...item, count: item.count + 1 };
+            }
+            return item;
+          });
+          dispatch(productActions.setShoppingCart(newArr));
+        } else {
+          dispatch(
+            productActions.setShoppingCart([
+              ...shoppingCart,
+              { ...props, count: 1 },
+            ])
+          );
+        }
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }, [dispatch, props, shoppingCart]);
 
   return (
     <S.Container>

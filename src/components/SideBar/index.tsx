@@ -1,10 +1,9 @@
-import { IState } from '@/reducers/product/types';
-import { IState as StateTools } from '@/reducers/tools/types';
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import CardNavBar from '@/components/CardNavBar';
 import { actions as toolsActions } from '@/reducers/tools';
+import { RootState } from '@/reducers';
 
 import Close from '../../../public/assets/icons/close.svg';
 
@@ -12,8 +11,8 @@ import * as S from './styles';
 
 function SideBar() {
   const dispatch = useDispatch();
-  const { product } = useSelector((state: IState) => state);
-  const { tools } = useSelector((state: StateTools) => state);
+  const { product } = useSelector((state: RootState) => state);
+  const { tools } = useSelector((state: RootState) => state);
 
   const handleSideBar = useCallback(() => {
     try {

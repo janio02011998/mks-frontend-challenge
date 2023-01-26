@@ -1,13 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IInitialState, IProduct } from './types';
+import { IInitialState, IShoppingCart } from './types';
 
-const initialState: IInitialState = {} as IInitialState;
+const initialState: IInitialState = {
+  shoppingCart: [],
+};
 
 const productSlice = createSlice({
   name: 'product',
   initialState,
   reducers: {
-    setShoppingCart: (state, action: PayloadAction<IProduct[]>) => ({
+    setShoppingCart: (state, action: PayloadAction<IShoppingCart[]>) => ({
       ...state,
       shoppingCart: action.payload,
     }),

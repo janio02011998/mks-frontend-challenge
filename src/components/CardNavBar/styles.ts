@@ -15,6 +15,7 @@ export const Container = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 4px;
   align-items: center;
+  margin-bottom: 12px;
 
   @media (max-width: 480px) {
     width: 95%;

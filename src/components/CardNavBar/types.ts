@@ -1,4 +1,4 @@
-import { IProduct } from '@/reducers/types';
+import { IProduct } from '@/reducers/product/types';
 
 export interface TextColor {
   black?: boolean;

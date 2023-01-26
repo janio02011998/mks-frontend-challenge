@@ -3,8 +3,8 @@ import Head from 'next/head';
 
 import { getAll } from '@/services/product';
 import MarketPlace from '@/components/MarketPlace';
-import { IProduct } from '@/reducers/types';
-import NavBar from '@/components/NavBar';
+import { IProduct } from '@/reducers/product/types';
+import SideBar from '@/components/SideBar';
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -39,7 +39,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MarketPlace products={products} />
-      <NavBar />
+      <SideBar />
     </>
   );
 }

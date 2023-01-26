@@ -81,14 +81,14 @@ export const Title = styled.span`
 export const PriceText = styled.span`
   color: ${colors.white};
   font-weight: 700;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 15px;
 `;
 
 export const Text = styled.span<T.TextColor>`
   color: ${Color};
   font-weight: 300;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 12px;
 `;
 

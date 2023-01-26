@@ -34,7 +34,7 @@ export const Title = styled.span`
 export const Count = styled.span`
   color: ${colors.black};
   font-weight: 400;
-  font-size: 9px;
+  font-size: 12px;
   line-height: 10.1px;
 `;
 

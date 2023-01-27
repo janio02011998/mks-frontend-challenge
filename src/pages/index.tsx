@@ -5,6 +5,7 @@ import { getAll } from '@/services/product';
 import MarketPlace from '@/components/MarketPlace';
 import { IProduct } from '@/reducers/product/types';
 import SideBar from '@/components/SideBar';
+import Shimmer from '@/components/Shimmer';
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -27,7 +28,7 @@ export default function Home() {
   }, [fetchProducts]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Shimmer />;
   }
 
   return (

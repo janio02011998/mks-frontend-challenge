@@ -10,10 +10,10 @@ import Close from '../../../public/assets/icons/close.svg';
 
 export default function CardNavBar(props: T.ICard) {
   const dispatch = useDispatch();
-  const { product } = useSelector((state: RootState) => state);
+  const shoppingCart = useSelector(
+    (state: RootState) => state.product.shoppingCart
+  );
   const { price, photo, name, count } = props;
-
-  const { shoppingCart } = product;
 
   const handleItem = useCallback(
     (operation: boolean) => {
@@ -47,12 +47,13 @@ export default function CardNavBar(props: T.ICard) {
 
   const handleRemove = useCallback(() => {
     try {
-      const newArr = shoppingCart.filter((item) => item.id === props.id);
+      const newArr = shoppingCart.filter((item) => item.id !== props.id);
+      console.log(newArr);
       dispatch(productActions.setShoppingCart(newArr));
     } catch (e) {
       console.log(e);
     }
-  }, []);
+  }, [dispatch, props.id, shoppingCart]);
 
   return (
     <S.Container>

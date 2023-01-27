@@ -18,9 +18,7 @@ export default function CardNavBar(props: T.ICard) {
   const handleItem = useCallback(
     (operation: boolean) => {
       try {
-        console.log(props.count);
-
-        if (props.count - 1 <= 0) {
+        if (!operation && props.count - 1 <= 0) {
           const newArr = shoppingCart.filter((item) => item.id !== props.id);
           dispatch(productActions.setShoppingCart(newArr));
           return;
